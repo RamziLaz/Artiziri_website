@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+  font-family: 'mercury';
+  src: url('../font/Mercury\ Display\ Roman.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.container {
+  display: grid;
+  align-items: center; /* Aligns children vertically in the middle */
+  justify-content: center; /* Centers children horizontally */
+  grid-template-columns: 1fr 1fr;
+  padding: 50px 0;
+}
+
+.image_section {
+  grid-row: 1 / 3;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.image_section img {
+  max-width: 80%; /* Ensures the image is responsive and doesn't overflow */
+  height: auto;
+  position: relative;
+}
+
+.artiziri_text {
+  padding-right: 150px;
+  color: #333; /* Dark grey text color */
+  text-align: left;
+  font-size: 28px;
+  line-height: 1.6; /* Improves readability of paragraphs */
+  font-family: "mercury", serif;
+}
+
+.artiziri_text .logo {
+  max-width: 40%; /* Ensures the logo is responsive */
+  position: relative; /* Needed for positioning pseudo-elements */
+  border-bottom: 2px solid #c29b40;
+  padding-bottom: 10px;
+}
+
+.title_sastanaqqam {
+  position: relative; /* Needed for positioning pseudo-elements */
+  padding-bottom: 1px; /* Space for the line */
+  border-bottom: 2px solid #c29b40;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.sastanaqqam_text {
+  text-align: left;
+  font-family: "Raleway";
+  padding-right: 150px;
+  color: #333; /* Dark grey text color */
+  text-align: left;
+  font-size: 28px;
+  line-height: 1.6; /* Improves readability of paragraphs */
+}
+.sastanaqqam_text>p {
+  opacity: 0.5;
+}
+/* Base styles are already defined and suitable for larger screens */
+
+/* Tablet Adjustments */
+@media (max-width: 1200px) {
+  .container {
+    position: relative;
+    display: grid;
+    align-items: center; /* Aligns children vertically in the middle */
+    justify-content: center; /* Centers children horizontally */
+    padding: 100px;
+    grid-template-columns: 1fr;
+  }
+  .image_section {
+    grid-row: 2 / 3;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+  }
+  .sastanaqqam_text {
+    padding-right: 0;
+  }
+  .artiziri_text {
+    padding-right: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .title_sastanaqqam {
+    font-size: 35px;
+  }
+  .sastanaqqam_text {
+    padding-right: 0;
+    font-size: 25px;
+  }
+}
+@media (max-width: 768px) {
+  .sastanaqqam_text {
+    font-size: 20px;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container{
+    padding: 30px;
+  }
+  .title_sastanaqqam {
+    font-size: 30px;
+  }
+  .sastanaqqam_text {
+    padding-right: 0;
+    font-size: 20px;
+  }
+  .artiziri_text {
+    padding-right: 0;
+    font-size: 20px;
+  }
+}

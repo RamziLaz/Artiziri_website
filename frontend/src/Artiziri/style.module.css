@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: 'mercury';
+  src: url('../font/Mercury\ Display\ Roman.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.artiziriFeatures {
+  text-align: center;
+  padding: 50px 0px;
+  font-family: "mercury", serif;
+
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand {
+  font-size: 28px;
+  color: #000;
+  font-style: italic;
+}
+.handsImage {
+  width: 100%;
+    margin: 20px auto;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+.line {
+  border-top: 2px solid #c29b40;
+  width: 30%;
+}
+.feature {
+  flex: 0 0 20%;
+  margin: 20px 0;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feature h3 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.feature p {
+  font-size: 21px;
+}
+
+@media (max-width: 1450px) {
+  .feature {
+    flex: 0 0 30%;
+    margin: 20px 0;
+    padding: 0 15px;
+  }
+  .features {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .feature h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+  .features {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  .title {
+width: 100%;
+}
+}

@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+.container {
+  display: flex;
+  align-items: center; /* Aligns children vertically in the middle */
+  justify-content: center; /* Centers children horizontally */
+  height: 100vh; /* Takes full viewport height */
+  padding: 100px;
+}
+
+.image_section {
+  flex: 1; /* Takes half of the available space */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.image_section img {
+  max-width: 80%; /* Ensures the image is responsive and doesn't overflow */
+  height: auto;
+}
+
+.text_section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1; /* Takes the other half of the available space */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+  font-family: "Arial", sans-serif; /* Sets a font family */
+  color: #333; /* Dark grey text color */
+  text-align: left;
+  justify-content: center;
+  font-size: 28px;
+  padding-right: 130px;
+}
+
+.text_section .logo {
+  max-width: 40%; /* Ensures the logo is responsive */
+  position: relative; /* Needed for positioning pseudo-elements */
+  padding-bottom: 10px; /* Space for the line */
+  border-bottom: 2px solid #c29b40;
+  padding-bottom: 10px;
+}
+
+.text_section p {
+  line-height: 1.6; /* Improves readability of paragraphs */
+}
+.title_sastanaqqam {
+  position: relative; /* Needed for positioning pseudo-elements */
+  padding-bottom: 10px; /* Space for the line */
+  border-bottom: 2px solid #c29b40;
+  padding-bottom: 10px;
+}
+
+
+.artiziri_p {
+  font-family: "Raleway";
+}
+.sastanaqqam_p {
+  font-family: "Raleway";
+}
+.text_section h2 {
+  color: black; /* Black color for headings */
+}
+
+
+
+/* Base styles are already defined and suitable for larger screens */
+
+/* Tablet Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 50px; /* Reduce padding for tablets */
+    flex-direction: column; /* Stack the sections vertically */
+  }
+
+  .image_section, .text_section {
+    flex: none; /* Disable flex grow */
+    width: 100%; /* Make each section full width */
+    padding-right: 0; /* Remove right padding from text section */
+  }
+
+  .text_section {
+    font-size: 24px; /* Slightly reduce font size */
+  }
+
+  .text_section .logo {
+    max-width: 60%; /* Increase the logo size slightly */
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px; /* Further reduce padding for small screens */
+  }
+
+  .text_section {
+    font-size: 18px; /* Reduce font size for better readability on small devices */
+  }
+
+  .text_section .logo {
+    max-width: 70%; /* Adjust logo size to be more prominent */
+    border-bottom: 1px solid #c29b40; /* Make the underline thinner */
+  }
+}

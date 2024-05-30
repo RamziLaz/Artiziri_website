@@ -1,0 +1,80 @@
+/* src/Footer/Footer.module.css */
+
+.footer {
+  background-color:black;
+  color: white;
+  padding: 50px 0;
+  margin-top: 150px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.logoContainer {
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 150px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  min-width: 200px; /* Ensure columns stack properly on small screens */
+}
+
+.column h4 {
+  margin-bottom: 10px;
+}
+
+.column p, .column a {
+  margin-bottom: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.column a:hover {
+  text-decoration: underline;
+}
+
+.icon {
+  margin-right: 10px;
+  color: #ccc;
+  font-size: 2em;
+}
+
+.icon:hover {
+  color: white;
+}
+.scrollToTop {
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.scrollToTop:hover {
+  background: #555;
+}
+
+.scrollIcon {
+  font-size: 3em;
+}

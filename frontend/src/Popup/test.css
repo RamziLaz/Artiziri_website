@@ -1,0 +1,204 @@
+/* src/components/SubscriptionForm.css */
+
+
+.main {
+  width: 15rem;
+  height: 4rem;
+  background-color: #007EC4;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: width .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.main.expanded {
+  width: 37rem;
+}
+
+.main>#singular-form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.main>#singular-form button {
+  width: 9rem;
+  padding: 0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main>#singular-form>button#subs {
+  padding: 0;
+  width: 100%;
+  color: white;
+  background-color: transparent;
+  z-index: 3;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.main>#singular-form>#email-input {
+  z-index: 2;
+}
+
+.main>#singular-form>#email-input>input {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  background-color: white;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 0 26% 0 3%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all .6s ease .4s;
+}
+
+.main>#singular-form>#email-input.shown>input {
+  opacity: 1;
+  transform: scale(1);
+  
+}
+
+.main>#singular-form>#email-input>button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #007EC4;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0);
+  transition: all .6s ease .4s;
+}
+
+.main>#singular-form>#email-input.shown>button {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.main>#singular-form>#success {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.main>#singular-form>button#subs,
+.main>#singular-form>#email-input,
+.main>#singular-form>#success {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.main>#singular-form>button#subs.shown,
+.main>#singular-form>#email-input.shown,
+.main>#singular-form>#success.shown,
+.main>#singular-form>#email-input>button.shown,
+.main>#singular-form>#email-input>input.shown {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+
+@media (max-width: 1024px) {
+  .main {
+    width: 12rem;
+    height: 3.5rem;
+  }
+
+  .main.expanded {
+    width: 30rem;
+  }
+
+  .main>#singular-form>button#subs {
+    font-size: 18px;
+  }
+
+  .main>#singular-form>#email-input>input {
+    font-size: 18px;
+  }
+
+  .main>#singular-form>#email-input>button {
+    font-size: 18px;
+  }
+
+  .main>#singular-form>#success {
+    font-size: 18px;
+  }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .main {
+    width: 10rem;
+    height: 3rem;
+  }
+
+  .main.expanded {
+    width: 25rem;
+  }
+
+  .main>#singular-form>button#subs {
+    font-size: 16px;
+  }
+
+  .main>#singular-form>#email-input>input {
+    font-size: 16px;
+  }
+
+  .main>#singular-form>#email-input>button {
+    font-size: 16px;
+  }
+
+  .main>#singular-form>#success {
+    font-size: 16px;
+  }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+  .main {
+    width: 8rem;
+    height: 2.5rem;
+  }
+
+  .main.expanded {
+    width: 20rem;
+  }
+
+  .main>#singular-form>button#subs {
+    font-size: 14px;
+  }
+
+  .main>#singular-form>#email-input>input {
+    font-size: 14px;
+    padding: 0 15% 0 3%;
+  }
+
+  .main>#singular-form>#email-input>button {
+    font-size: 14px;
+  }
+
+  .main>#singular-form>#success {
+    font-size: 14px;
+  }
+}

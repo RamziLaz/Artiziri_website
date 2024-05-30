@@ -1,0 +1,25 @@
+.scrollToTop {
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 50px;
+  height:50px;
+  position: fixed;
+}
+
+.scrollToTop:hover {
+  background: #555;
+}
+
+.scrollIcon {
+  font-size: 2em;
+}
+.icon {
+  margin-right: 10px;
+  color: #ccc;
+  font-size: 2em;
+}

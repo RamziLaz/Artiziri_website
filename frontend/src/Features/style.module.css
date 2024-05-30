@@ -1,0 +1,165 @@
+/* Styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+.big_container {
+  position: relative;
+    font-family: "Raleway";
+
+
+}
+
+.container {
+  position: relative;
+  max-width: 600px;
+  width: 100%; /* Ensures the container does not exceed the width of small devices */
+  margin: auto; /* Center-align the container */
+}
+
+.image {
+  width: 100%;
+  display: block; /* Removes bottom space/gap */
+}
+
+.images {
+  display: grid;
+  grid-template-columns: auto auto; /* Keeps two columns on larger screens */
+  gap: 80px; /* Original gap for larger screens */
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(4, 155, 243, 0.9); /* Semi-transparent blue overlay */
+  color: #ffffff; /* Ensures high contrast for readability */
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Hide overlay initially */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.container:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.title {
+  font-size: 50px;
+  color: white;
+  font-weight: 300;
+}
+
+.big_container h2 {
+  font-size: 40px;
+  margin-left: 500px; /* Keep large margins on larger screens */
+  margin-right: 500px;
+}
+
+.overlay p {
+  font-size: 22px;
+  color: white;
+}
+
+/* Media Queries for Tablets */
+
+@media (max-width: 1800px) {
+  .big_container h2 {
+    margin-left: 250px; /* Reduces margin for tablets */
+    margin-right: 250px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .big_container h2 {
+    margin-left: 150px; /* Reduces margin for tablets */
+    margin-right: 150px;
+    font-size: px;
+  }
+}
+@media (max-width: 1300px) {
+  .big_container h2 {
+    margin-left: 150px; /* Reduces margin for tablets */
+    margin-right: 150px;
+    font-size: 25px;
+  }
+  .images {
+    margin: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .big_container h2 {
+    margin-left: 50px; /* Reduces margin for tablets */
+    margin-right: 50px;
+    font-size: 25px;
+  }
+  .images {
+    grid-template-columns: 1fr; /* Stacks images vertically on smaller screens */
+    gap: 40px; /* Reduces gap for smaller screens */
+    align-items: center;
+  }
+
+  .overlay {
+    padding: 20px; /* Reduces padding for smaller screens */
+  }
+
+  .title,
+  .big_container h2 {
+    font-size: 30px; /* Reduces font size for smaller devices */
+    font-weight: bold;
+  }
+  .overlay p {
+    font-size: 20px;
+  }
+}
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .overlay p {
+    font-size: 20px; /* Reduces font size for smaller devices */
+  }
+  .container {
+    max-width: 80%;
+  }
+  .images {
+    grid-template-columns: 1fr; /* Stacks images vertically on smaller screens */
+    gap: 40px; /* Reduces gap for smaller screens */
+    align-items: center;
+    margin: 0;
+  }
+
+  .overlay {
+    padding: 20px; /* Reduces padding for smaller screens */
+  }
+
+  .title {
+    font-weight: bold;
+  }
+  
+
+  .big_container h2 {
+    margin-left: 20px; /* Further reduces margin */
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .big_container h2 {
+    font-size: 20px;
+  }
+  .title,
+  .overlay p {
+    font-size: 15px; /* Further reduces font size for very small devices */
+  }
+  .images {
+    gap: 30px;
+    margin: 0;
+  }
+}
