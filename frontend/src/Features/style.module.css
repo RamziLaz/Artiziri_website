@@ -3,9 +3,7 @@
 
 .big_container {
   position: relative;
-    font-family: "Raleway";
-
-
+  font-family: "Raleway";
 }
 
 .container {
@@ -54,6 +52,14 @@
   font-size: 50px;
   color: white;
   font-weight: 300;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.container:hover .title {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .big_container h2 {
@@ -65,10 +71,17 @@
 .overlay p {
   font-size: 22px;
   color: white;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.container:hover .overlay p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Media Queries for Tablets */
-
 @media (max-width: 1800px) {
   .big_container h2 {
     margin-left: 250px; /* Reduces margin for tablets */
@@ -81,9 +94,10 @@
   .big_container h2 {
     margin-left: 150px; /* Reduces margin for tablets */
     margin-right: 150px;
-    font-size: px;
+    font-size: 30px;
   }
 }
+
 @media (max-width: 1300px) {
   .big_container h2 {
     margin-left: 150px; /* Reduces margin for tablets */
@@ -120,6 +134,7 @@
     font-size: 20px;
   }
 }
+
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
   .overlay p {
@@ -142,7 +157,6 @@
   .title {
     font-weight: bold;
   }
-  
 
   .big_container h2 {
     margin-left: 20px; /* Further reduces margin */

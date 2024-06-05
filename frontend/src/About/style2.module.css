@@ -14,12 +14,15 @@
 }
 
 .image_section {
+    margin-top: 20px;
+
   grid-row: 1 / 3;
   justify-content: center; /* Center the image horizontally */
   align-items: center; /* Center the image vertically */
 }
 
 .image_section img {
+  
   max-width: 80%; /* Ensures the image is responsive and doesn't overflow */
   height: auto;
   position: relative;
@@ -50,6 +53,7 @@
 }
 
 .sastanaqqam_text {
+  margin-top: 20px;
   text-align: left;
   font-family: "Raleway";
   padding-right: 150px;

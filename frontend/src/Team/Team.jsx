@@ -11,40 +11,48 @@ import samy from "./samy.png"
 import moundhir from "./moundhir.jpg";
 import anis from "./anis.jpg"
 import nassim from "./nassim.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 
 const Team = () => {
   const teamMembers = [
     {
       name: "Ramzi Lazouni",
       image: ramzi,
-      position: "IT Engineer",
+      position: "Blockchain and Web3 Specialist",
+      linkedin: "https://www.linkedin.com/in/samy-benbahmed-36465616b/",
     },
     {
       name: "Samy Benbahmed",
       image: samy,
       position: "Chief Operation Officer",
+      linkedin: "https://www.linkedin.com/in/ramzi-lazouni-37b088177/",
     },
     {
       name: "Mohamed Mbarek Azzi",
       image: mouh,
       position: "Chief Business Development Officer",
+      linkedin: "https://www.linkedin.com/in/mohamed-mbarek-azzi-03a85bab/",
     },
     {
       name: "Anis Hamidi",
       image: anis,
       position: "Content Manger",
+      linkedin: "https://www.linkedin.com/in/anis-hamidi-62783b263/",
     },
     {
       name: "Moundhir Bachene",
       image: moundhir,
       position: "Blockchain & Data Analyst",
+      linkedin: "https://www.linkedin.com/in/moundhir-bachene/",
     },
     {
       name: "Nassim Tebbani",
       image: nassim,
       position: "Senior Designer",
+      linkedin: "https://www.linkedin.com/in/nassim-tebbani/",
     },
-    
   ];
 
   const settings = {
@@ -85,9 +93,8 @@ const Team = () => {
 
   return (
     <div id="Team" className={classes.big_container}>
- 
       <img src={title} className={classes.Artizan} />
-      
+
       <div className={classes.carousel_container}>
         <Slider {...settings}>
           {teamMembers.map((person, index) => (
@@ -100,7 +107,17 @@ const Team = () => {
                 />
                 <div className={classes.overlay}>
                   <span className={classes.title}>{person.name}</span>
+                  <br />
                   <p>{person.position}</p>
+                  <br />
+                  <a
+                    href={person.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={classes.linkedin_icon}
+                  >
+                    <FontAwesomeIcon icon={faLinkedin} size="3x" />
+                  </a>
                 </div>
               </div>
             </div>

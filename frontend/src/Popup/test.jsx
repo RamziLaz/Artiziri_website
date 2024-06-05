@@ -28,12 +28,9 @@ const Test = () => {
     setErrorMessage("");
     setIsSubscribed(false);
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/subscribe",
-        {
-          email,
-        }
-      );
+      const response = await axios.post("https://artiziri.io/api/subscribe", {
+        email,
+      });
       console.log(response.data);
       setIsSubscribed(true);
     } catch (error) {

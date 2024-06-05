@@ -2,15 +2,14 @@ import React from "react";
 import classes from "./style2.module.css"; // Assuming your styles are defined here
 import landscapeImage from "../test.png"; // Import landscape image
 import artiziriLogo from "../artiziri.png"; // Import Artiziri logo
-
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
 function About() {
   return (
     <div id ="About" className={classes.container}>
       <div className={classes.image_section}>
-        <img src={landscapeImage} alt="Descriptive Alt Text" />
-        <br />
-        <br />
-        <br />
+        {/* <img src={landscapeImage} alt="Descriptive Alt Text" /> */}
+        <VideoPlayer />
+  
       </div>
       <div className={classes.artiziri_text}>
         <img src={artiziriLogo} alt="Artiziri Logo" className={classes.logo} />
@@ -23,7 +22,6 @@ function About() {
           digital collectibles, but also allows you to rent and add them to your
           collection or display them on your preferred digital display devices.
         </p>
-        <br />
       </div>
       <div className={classes.sastanaqqam_text}>
        

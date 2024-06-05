@@ -2,7 +2,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
   faTwitter,
   faInstagram,
   faTiktok,
@@ -10,7 +9,6 @@ import {
 import logo from "../artiziri2.png";
 import classes from "./Style.module.css";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import top from '../top.png'
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -29,34 +27,41 @@ const Footer = () => {
           <div className={classes.column}>
             <h4>About Us</h4>
             <p>
-              We are a team of passionate individuals dedicated to bringing the
-              best services to our users.
+              At Artiziri, we are dedicated to delivering high-quality digital
+              solutions that drive innovation and efficiency.
             </p>
           </div>
           <div className={classes.column}>
             <h4>Contact Us</h4>
-            <p>Email: info@artiziri.com</p>
-            <p>Phone: +123 456 7890</p>
+            <p>Email: info@artiziri.io</p>
+            <p>Phone: +97148347324</p>
           </div>
           <div className={classes.column}>
             <h4>Follow Us</h4>
             <a
               href="https://www.instagram.com/artiziriii"
               className={classes.icon}
+              target="_blank"
             >
               <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="https://x.com/artiziri" className={classes.icon}>
+            <a
+              href="https://x.com/artiziri"
+              className={classes.icon}
+              target="_blank"
+            >
               <FontAwesomeIcon icon={faTwitter} />
             </a>
             <a
               href="https://www.tiktok.com/@artizirii"
               className={classes.icon}
+              target="_blank"
             >
               <FontAwesomeIcon icon={faTiktok} />
             </a>
           </div>
         </div>
+        <div></div>
       </div>
     </footer>
   );

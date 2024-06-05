@@ -1,0 +1,18 @@
+.video{
+    width: 50%;
+}
+@media (max-width: 1600px) {
+  .video{
+    width: 60% !important;
+  }
+}
+@media (max-width: 1200px) {
+  .video{
+    width: 45% !important;
+  }
+}
+@media (max-width: 476px) {
+  .video{
+    width: 70% !important;
+  }
+}

@@ -1,18 +1,21 @@
-// server.js
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
+const helmet = require("helmet");
+require("dotenv").config();
+const { celebrate, Joi, errors, Segments } = require("celebrate");
+
 const app = express();
-const port = 5000;
-const dburi =
-  "mongodb+srv://lazouniramzi:sastanaqqam_artiziri@artiziri.yxsuwn5.mongodb.net/?retryWrites=true&w=majority&appName=Artiziri";
-const nodemailer = require("nodemailer"); // Import Nodemailer
+const port = process.env.PORT || 5000;
+const dburi = process.env.MONGODB_URI;
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(helmet());
 
 // Connect to MongoDB
 mongoose
@@ -27,44 +30,104 @@ mongoose
     console.error("Error connecting to MongoDB:", error.message);
   });
 
-// Configure Nodemailer transporter
+// Define schemas and models
+const contactSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+    },
+    subject: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
+const Contact = mongoose.model("Contact", contactSchema);
+
+// Nodemailer transporter configuration
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-    user: "lazouniramzi@gmail.com", // your email
-    pass: "vpmp kwgm pzui gevi", // your password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
 // Function to send confirmation email
 async function sendConfirmationEmail(email) {
-  // Define email content
-  let mailOptions = {
-    from: "lazouniramzi@gmail.com",
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
     to: email,
     subject: "Newsletter Subscription",
-    html: "<p> We're thrilled to welcome you to the Artiziri community As an aficionado of creativity and innovation, you've joined a vibrant community dedicated to celebrating the arts in all their forms. <br>At Artiziri, we're passionate about fostering connections and sharing inspiration. Our newsletter is your ticket to a world of artistic wonders, where you'll discover: <br> 🖌️Exciting updates on the latest trends in art and design.<br>🎭 Exclusive interviews with talented artists pushing boundaries.<br>🎨 Creative tips and techniques to unleash your inner artist.<br>📸 Stunning visual showcases from around the globe.<br> Thank you for choosing Artiziri as your creative companion. We can't wait to embark on this artistic adventure together! </p>",
+    html: `<p>We're thrilled to welcome you to the Artiziri community...</p>`,
   };
 
-  // Send email
   try {
-    let info = await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
     console.log("Email sent: " + info.response);
   } catch (error) {
     console.error("Error sending email: ", error);
   }
 }
 
+// Route to handle contact form submissions
+app.post(
+  "/api/contact",
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      name: Joi.string().required(),
+      email: Joi.string().email().required(),
+      subject: Joi.string().required(),
+      message: Joi.string().required(),
+    }),
+  }),
+  async (req, res) => {
+    const { name, email, subject, message } = req.body;
+
+    try {
+      const newContact = new Contact({ name, email, subject, message });
+      await newContact.save();
+      res.status(201).send("Contact form submitted successfully");
+    } catch (error) {
+      res.status(500).send("Error saving contact form data: " + error.message);
+    }
+  }
+);
+
+// Global error handler
+app.use(errors());
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
 // Define a schema for the emails
 const emailSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+  },
 });
 
 const Email = mongoose.model("Email", emailSchema);
 
-// Route to handle email submissions
+// Route to handle email subscriptions
 app.post("/api/subscribe", async (req, res) => {
   const { email } = req.body;
 
@@ -79,13 +142,11 @@ app.post("/api/subscribe", async (req, res) => {
     if (error.code === 11000) {
       res.status(400).send("Email already exists");
     } else {
-      res.status(500).send("Error saving email");
+      res.status(500).send("Error saving email: " + error.message);
     }
   }
 });
 
-app.listen(port, "0.0.0.0",() => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-// // sastanaqqam_artiziri mpdformoonogodb
-// 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 =/token 
