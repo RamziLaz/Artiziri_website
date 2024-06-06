@@ -8,6 +8,7 @@ const Test = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const validateEmail = (email) => {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -27,8 +28,9 @@ const Test = () => {
   const handleAddMeClick = async () => {
     setErrorMessage("");
     setIsSubscribed(false);
+    setLoading(true);
     try {
-      const response = await axios.post("https://artiziri.io/api/subscribe", {
+      const response = await axios.post(`http://localhost:5000/api/subscribe`, {
         email,
       });
       console.log(response.data);
@@ -37,6 +39,8 @@ const Test = () => {
       setErrorMessage(
         error.response ? error.response.data : "Error saving email"
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,10 +71,10 @@ const Test = () => {
             <button
               type="button"
               className="addbut1 shown"
-              disabled={!isEmailValid}
+              disabled={!isEmailValid || loading}
               onClick={handleAddMeClick}
             >
-              Add Me
+              {loading ? "Adding..." : "Add Me"}
             </button>
           </div>
         )}

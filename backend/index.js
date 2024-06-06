@@ -150,3 +150,6 @@ app.post("/api/subscribe", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+// // sastanaqqam_artiziri mpdformoonogodb
+// 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 =/token
