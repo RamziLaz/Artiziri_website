@@ -17,7 +17,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/contact", formData);
+      await axios.post("https://artiziri.io/api/contact", formData);
       // Optionally, clear the form fields after submission
       setFormData({
         name: "",
